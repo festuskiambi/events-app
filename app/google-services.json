@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "928986855507",
+    "firebase_url": "https://events-app-98bee.firebaseio.com",
+    "project_id": "events-app-98bee",
+    "storage_bucket": "events-app-98bee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928986855507:android:d8d4c0da6fc6f71b9c2ea6",
+        "android_client_info": {
+          "package_name": "com.example.eventsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928986855507-e8h67mfocl380vp8lous4rppcbt37tnf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eventsapp",
+            "certificate_hash": "81667e10bf1d855d75058f55e4eadf03eabacfa9"
+          }
+        },
+        {
+          "client_id": "928986855507-hvojc1pgvq1e7vvgql75f1k78g0g90gg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFhD-UB-Xzs0rQlPQyBP_wFDfgvMB53r0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928986855507-hvojc1pgvq1e7vvgql75f1k78g0g90gg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
