@@ -1,4 +1,4 @@
-package com.example.eventsapp.eventdetail.ui
+package com.example.eventsapp.listevents.ui
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eventsapp.R
 import com.example.eventsapp.domain.entities.Event
+import com.example.eventsapp.eventdetail.ui.EventDetailActivity
 import kotlinx.android.synthetic.main.item_event.view.*
 
 

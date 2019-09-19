@@ -3,6 +3,7 @@ package com.example.eventsapp.listevents.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.example.eventsapp.R
 import com.example.eventsapp.eventdetail.ui.EventDetailActivity
 import com.example.eventsapp.listevents.viewmodel.ListEventsViewModel
@@ -13,6 +14,7 @@ class ListEventsActivity : AppCompatActivity() {
 
     private val viewModel: ListEventsViewModel by viewModel()
 
+    lateinit var adapter: EventListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +24,27 @@ class ListEventsActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        setupAdapter()
+        observeViewModel()
+        toolbar.setTitle("Events")
+
         fab_add.setOnClickListener {
             val intent = Intent(this@ListEventsActivity, EventDetailActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun observeViewModel() {
+        viewModel.eventsList.observe(
+            this,
+            Observer { eventList ->
+                adapter.submitList(eventList)
+            }
+        )
+    }
+
+    private fun setupAdapter() {
+        adapter = EventListAdapter()
+        rv_events.adapter = adapter
     }
 }

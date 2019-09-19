@@ -8,6 +8,7 @@ import com.example.eventsapp.domain.entities.Event
 import com.example.eventsapp.domain.usecases.IEventUseCase
 import com.example.rockstars.common.AppDispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * Created by Festus Kiambi on 9/19/19.
@@ -26,6 +27,6 @@ class ListEventsViewModel(
 
     private fun getEventsList()=viewModelScope.launch(dispatchers.io) {
         val result = eventsUseCase.getEvents()
-        eventListState.value = result
+            eventListState.postValue(result)
     }
 }

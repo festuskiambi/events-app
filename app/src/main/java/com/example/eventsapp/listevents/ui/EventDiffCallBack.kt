@@ -1,4 +1,4 @@
-package com.example.eventsapp.eventdetail.ui
+package com.example.eventsapp.listevents.ui
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.eventsapp.domain.entities.Event

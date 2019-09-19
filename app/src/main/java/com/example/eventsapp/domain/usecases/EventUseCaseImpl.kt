@@ -3,6 +3,8 @@ package com.example.eventsapp.domain.usecases
 import com.example.eventsapp.domain.entities.Event
 import com.example.eventsapp.domain.repository.ILocalEventRepository
 import com.example.eventsapp.domain.repository.IRemoteRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 /**
  * Created by Festus Kiambi on 9/19/19.
@@ -13,7 +15,7 @@ class EventUseCaseImpl(private val localRepository: ILocalEventRepository,
         localRepository.createEvent(event)
     }
 
-    override suspend fun getEvents(): List<Event> {
+    override suspend fun getEvents(): List<Event>  {
        return localRepository.getEvents()
     }
 
