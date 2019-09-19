@@ -1,13 +1,13 @@
-package com.example.eventsapp.eventdetail.ui
+package com.example.eventsapp.base
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.eventsapp.R
 
-class EventDetailActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_event_detail)
+        setContentView(R.layout.activity_main)
     }
 }
