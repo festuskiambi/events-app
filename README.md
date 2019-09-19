@@ -1,4 +1,4 @@
-#Events App
+# Events App
 This is an android Application built with a clean MVVM architecture.                       
 
 ## Languages, libraries and tools used
