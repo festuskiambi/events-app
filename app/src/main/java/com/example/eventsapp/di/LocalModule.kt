@@ -16,5 +16,4 @@ val localModule = module {
     }
 
     single { (get<EventsAppDatabase>().eventsDao()) }
-
 }

@@ -18,13 +18,12 @@ import org.koin.dsl.module
 
 val eventsModule = module {
     factory<ILocalEventRepository> { LocalEventRepositoryImpl(get()) }
-    factory <IRemoteRepository>{  RemoteEventRepositoryImpl()}
+
+    factory<IRemoteRepository> { RemoteEventRepositoryImpl() }
 
     factory<IEventUseCase> { EventUseCaseImpl(get(), get()) }
 
     factory { AppDispatchers(Dispatchers.Main, Dispatchers.IO) }
 
-
     viewModel { EventDetailViewModel(get(), get()) }
-
 }
