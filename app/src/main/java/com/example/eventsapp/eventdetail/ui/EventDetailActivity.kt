@@ -33,9 +33,9 @@ class EventDetailActivity : AppCompatActivity() {
                 viewModel.deleteEvent(event)
                 onBackPressed()
             }
-        }catch (e: TypeCastException){
+        } catch (e: TypeCastException) {
             val uuid = UUID.randomUUID()
-             id = uuid.toString()
+            id = uuid.toString()
         }
 
 
@@ -64,13 +64,16 @@ class EventDetailActivity : AppCompatActivity() {
         val startTime = et_start_time.text.toString().trim()
         val endTime = et_end_time.text.toString().trim()
 
-        if(title.isBlank()) et_title.error = "required"
-        if(startDate.isBlank()) et_start_date.error = "required"
-        if(endDate.isBlank()) et_end_date.error = "required"
-        if(startTime.isBlank()) et_start_time.error = "required"
-        if(endTime.isBlank()) et_end_time.error = "required"
+        if (title.isBlank()) et_title.error = "required"
+        if (startDate.isBlank()) et_start_date.error = "required"
+        if (endDate.isBlank()) et_end_date.error = "required"
+        if (startTime.isBlank()) et_start_time.error = "required"
+        if (endTime.isBlank()) {
+            et_end_time.error = "required"
+        } else {
 
-        viewModel.saveEvent(id,title,startDate,endDate,startTime,endTime)
-        onBackPressed()
+            viewModel.saveEvent(id, title, startDate, endDate, startTime, endTime)
+            onBackPressed()
+        }
     }
 }
