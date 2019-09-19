@@ -13,12 +13,10 @@ import java.util.*
  * Created by Festus Kiambi on 9/19/19.
  */
 
-class EventDetailViewModel(private val eventsUseCase: IEventUseCase,
-                           private val dispatchers: AppDispatchers) : ViewModel() {
-
-    init {
-
-    }
+class EventDetailViewModel(
+    private val eventsUseCase: IEventUseCase,
+    private val dispatchers: AppDispatchers
+) : ViewModel() {
 
     fun saveEvent(
         title: String,

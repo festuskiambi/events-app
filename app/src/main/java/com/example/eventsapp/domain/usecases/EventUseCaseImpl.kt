@@ -14,7 +14,7 @@ class EventUseCaseImpl(private val localRepository: ILocalEventRepository,
     }
 
     override suspend fun getEvents(): List<Event> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       return localRepository.getEvents()
     }
 
     override suspend fun editEvent(event: Event) {

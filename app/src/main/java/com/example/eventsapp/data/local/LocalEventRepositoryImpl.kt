@@ -1,5 +1,6 @@
 package com.example.eventsapp.data.local
 
+import com.example.eventsapp.data.toEntityEventList
 import com.example.eventsapp.data.toRoomvent
 import com.example.eventsapp.domain.entities.Event
 import com.example.eventsapp.domain.repository.ILocalEventRepository
@@ -13,7 +14,7 @@ class LocalEventRepositoryImpl(private val eventsDao: EventsDao) : ILocalEventRe
     }
 
     override suspend fun getEvents(): List<Event> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       return eventsDao.getEvents().toEntityEventList()
     }
 
 
