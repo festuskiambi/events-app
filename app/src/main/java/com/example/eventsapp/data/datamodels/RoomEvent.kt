@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
  * Created by Festus Kiambi on 9/19/19.
  */
 class RoomEvent (
-
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,
