@@ -25,7 +25,7 @@ class ListEventsViewModel(
         getEventsList()
     }
 
-    private fun getEventsList()=viewModelScope.launch(dispatchers.io) {
+     fun getEventsList()=viewModelScope.launch(dispatchers.io) {
         val result = eventsUseCase.getEvents()
             eventListState.postValue(result)
     }

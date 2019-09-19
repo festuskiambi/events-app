@@ -14,11 +14,11 @@ class LocalEventRepositoryImpl(private val eventsDao: EventsDao) : ILocalEventRe
     }
 
     override suspend fun getEvents(): List<Event> {
-       return eventsDao.getEvents().toEntityEventList()
+        return eventsDao.getEvents().toEntityEventList()
     }
 
 
     override suspend fun deleteEvent(event: Event) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        eventsDao.deleteEvent(event.toRoomvent)
     }
 }

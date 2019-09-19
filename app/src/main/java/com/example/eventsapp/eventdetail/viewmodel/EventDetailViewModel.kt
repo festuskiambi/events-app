@@ -19,17 +19,20 @@ class EventDetailViewModel(
 ) : ViewModel() {
 
     fun saveEvent(
+        id: String,
         title: String,
         startDate: String,
         endDate: String,
         startTime: String,
         endTime: String
     ) = viewModelScope.launch(dispatchers.io) {
-        val uuid = UUID.randomUUID()
-        val id = uuid.toString()
         val event = Event(id,title,startDate,endDate,startTime,endTime)
 
         eventsUseCase.createEvent(event)
+    }
+
+    fun deleteEvent(event: Event) = viewModelScope.launch(dispatchers.io) {
+         eventsUseCase.deleteEvent(event)
     }
 
 }

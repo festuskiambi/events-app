@@ -7,11 +7,13 @@ import com.example.eventsapp.domain.entities.Event
 import com.example.eventsapp.eventdetail.viewmodel.EventDetailViewModel
 import kotlinx.android.synthetic.main.activity_event_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.*
 
 class EventDetailActivity : AppCompatActivity() {
 
     private lateinit var event: Event
     private val viewModel: EventDetailViewModel by viewModel()
+    private var id = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,9 +23,38 @@ class EventDetailActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+
+        try {
+            event = intent.getSerializableExtra("value") as Event
+            id = event.id
+            populateViewCurrentEventDetails()
+
+            imb_toolbar_delete.setOnClickListener {
+                viewModel.deleteEvent(event)
+                onBackPressed()
+            }
+        }catch (e: TypeCastException){
+            val uuid = UUID.randomUUID()
+             id = uuid.toString()
+        }
+
+
         imb_toolbar_done.setOnClickListener {
             initiateSaveEvent()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel
+    }
+
+    private fun populateViewCurrentEventDetails() {
+        et_title.setText(event.title)
+        et_start_date.setText(event.startDate)
+        et_end_date.setText(event.endDate)
+        et_start_time.setText(event.startTime)
+        et_end_time.setText(event.endTime)
     }
 
     private fun initiateSaveEvent() {
@@ -39,6 +70,7 @@ class EventDetailActivity : AppCompatActivity() {
         if(startTime.isBlank()) et_start_time.error = "required"
         if(endTime.isBlank()) et_end_time.error = "required"
 
-        viewModel.saveEvent(title,startDate,endDate,startTime,endTime)
+        viewModel.saveEvent(id,title,startDate,endDate,startTime,endTime)
+        onBackPressed()
     }
 }

@@ -3,12 +3,15 @@ package com.example.eventsapp.listevents.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
-import com.example.eventsapp.R
 import com.example.eventsapp.eventdetail.ui.EventDetailActivity
 import com.example.eventsapp.listevents.viewmodel.ListEventsViewModel
 import kotlinx.android.synthetic.main.activity_list_events.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import com.example.eventsapp.R
+
+
 
 class ListEventsActivity : AppCompatActivity() {
 
@@ -32,13 +35,48 @@ class ListEventsActivity : AppCompatActivity() {
             val intent = Intent(this@ListEventsActivity, EventDetailActivity::class.java)
             startActivity(intent)
         }
+
+
+
+
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filter.filter(newText)
+                return true
+            }
+            override fun onQueryTextSubmit(query: String): Boolean {
+                adapter.filter.filter(query)
+                return true
+            }
+        })
+
+    }
+
+    fun onQueryTextSubmit(query: String): Boolean {
+        adapter.filter.filter(query)
+
+        return true
+    }
+
+    fun onQueryTextChange(newText: String): Boolean {
+        adapter.filter.filter(newText)
+        return true
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.getEventsList()
+        adapter.notifyDataSetChanged()
     }
 
     private fun observeViewModel() {
         viewModel.eventsList.observe(
             this,
             Observer { eventList ->
-                adapter.submitList(eventList)
+               // adapter.submitList(eventList)
+                adapter.updateEventList(eventList)
             }
         )
     }
