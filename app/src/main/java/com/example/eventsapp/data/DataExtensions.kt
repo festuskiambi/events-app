@@ -16,4 +16,19 @@ get() = RoomEvent(
     this.endTime
 )
 
+internal val RoomEvent.toEntityEvent: Event
+    get() = Event(
+        this.id,
+        this.title,
+        this.startDate,
+        this.endDate,
+        this.startTime,
+        this.endTime
+    )
+
+internal fun List<RoomEvent>.toEntityEventList(): List<Event> = this.flatMap {
+    listOf(it.toEntityEvent)
+}
+
+
 
