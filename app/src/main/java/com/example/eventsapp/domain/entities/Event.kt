@@ -1,5 +1,7 @@
 package com.example.eventsapp.domain.entities
 
+import java.io.Serializable
+
 /**
  * Created by Festus Kiambi on 9/18/19.
  */
@@ -10,4 +12,4 @@ data class Event (
     val endDate: String,
     val startTime: String,
     val endTime: String
-)
+): Serializable

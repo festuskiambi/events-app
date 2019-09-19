@@ -7,6 +7,7 @@ import com.example.eventsapp.domain.repository.IRemoteRepository
 import com.example.eventsapp.domain.usecases.EventUseCaseImpl
 import com.example.eventsapp.domain.usecases.IEventUseCase
 import com.example.eventsapp.eventdetail.viewmodel.EventDetailViewModel
+import com.example.eventsapp.listevents.viewmodel.ListEventsViewModel
 import com.example.rockstars.common.AppDispatchers
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.viewmodel.dsl.viewModel
@@ -26,4 +27,6 @@ val eventsModule = module {
     factory { AppDispatchers(Dispatchers.Main, Dispatchers.IO) }
 
     viewModel { EventDetailViewModel(get(), get()) }
+
+    viewModel { ListEventsViewModel(get(), get()) }
 }
