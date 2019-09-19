@@ -1,11 +1,18 @@
 package com.example.eventsapp.data.datamodels
 
 import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
  * Created by Festus Kiambi on 9/19/19.
  */
+
+@Entity(
+    tableName = "events",
+    indices = [Index("id")]
+)
 class RoomEvent (
 
     @PrimaryKey
