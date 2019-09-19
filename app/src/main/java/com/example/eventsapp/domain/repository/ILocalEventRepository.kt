@@ -10,7 +10,7 @@ interface ILocalEventRepository {
 
     suspend fun getEvents() : List<Event>
 
-    suspend fun createEvent(event: Event)
+    suspend fun editEvent(id: String)
 
     suspend fun deleteEvent(event: Event)
 }

@@ -1,12 +1,14 @@
 package com.example.eventsapp.data.local
 
-import androidx.room.*
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.example.eventsapp.data.datamodels.RoomEvent
 
 /**
  * Created by Festus Kiambi on 9/19/19.
  */
-@Dao
 interface EventsDao {
 
     @Query("SELECT * FROM events")
@@ -16,5 +18,5 @@ interface EventsDao {
     fun insertEvent(event: RoomEvent)
 
     @Delete
-    fun deleteEvent(event: RoomEvent)
+    fun deleteEvent()
 }
