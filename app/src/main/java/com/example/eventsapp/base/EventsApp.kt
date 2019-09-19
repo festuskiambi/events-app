@@ -1,6 +1,8 @@
 package com.example.eventsapp.base
 
 import android.app.Application
+import com.example.eventsapp.di.eventsModule
+import com.example.eventsapp.di.localModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -16,7 +18,7 @@ class EventsApp : Application() {
             // declare used Android context
             androidContext(this@EventsApp)
             // declare modules
-            modules(listOf())
+            modules(listOf(localModule,eventsModule))
         }
 
     }

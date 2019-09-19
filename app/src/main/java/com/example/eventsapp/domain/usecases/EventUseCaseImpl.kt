@@ -1,21 +1,25 @@
-package com.example.eventsapp.data.local
+package com.example.eventsapp.domain.usecases
 
-import com.example.eventsapp.data.toRoomvent
 import com.example.eventsapp.domain.entities.Event
 import com.example.eventsapp.domain.repository.ILocalEventRepository
+import com.example.eventsapp.domain.repository.IRemoteRepository
 
 /**
  * Created by Festus Kiambi on 9/19/19.
  */
-class LocalEventRepositoryImpl(private val eventsDao: EventsDao) : ILocalEventRepository {
+class EventUseCaseImpl(private val localRepository: ILocalEventRepository,
+                       private val remoteRepository: IRemoteRepository) : IEventUseCase {
     override suspend fun createEvent(event: Event) {
-        eventsDao.insertEvent(event.toRoomvent)
+        localRepository.createEvent(event)
     }
 
     override suspend fun getEvents(): List<Event> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override suspend fun editEvent(event: Event) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override suspend fun deleteEvent(event: Event) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

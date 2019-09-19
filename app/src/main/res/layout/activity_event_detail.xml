@@ -28,7 +28,7 @@
             style="@style/Widget.AppCompat.ActionButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_delete_forever_black_24"
+            app:srcCompat="@drawable/ic_delete_forever_black_24"
             android:layout_marginEnd="74dp"
             android:layout_gravity="end"
             />
@@ -39,7 +39,7 @@
             style="@style/Widget.AppCompat.ActionButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_done_black_24dp"
+            app:srcCompat="@drawable/ic_done_black_24dp"
             android:layout_gravity="end"
             />
 
@@ -75,6 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_start_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="start date" />
@@ -92,6 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_end_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="end date" />
@@ -109,6 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_start_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="start time" />
@@ -125,6 +128,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_end_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="end time" />
